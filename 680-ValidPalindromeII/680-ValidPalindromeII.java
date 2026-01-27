@@ -1,4 +1,4 @@
-// Last updated: 1/18/2026, 2:10:33 PM
+// Last updated: 1/27/2026, 10:27:48 PM
 1class Solution {
 2    public boolean helper(int i, int j, String s){
 3        while(i < j){
