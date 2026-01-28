@@ -1,4 +1,4 @@
-// Last updated: 1/21/2026, 4:04:25 PM
+// Last updated: 1/28/2026, 4:33:39 PM
 1class Solution {
 2    public static int logic(int[] nums, int target, int start, int end){
 3        if(start > end) return -1;
