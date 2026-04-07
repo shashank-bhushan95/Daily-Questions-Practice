@@ -1,26 +1,17 @@
-// Last updated: 1/29/2026, 11:00:28 PM
+// Last updated: 4/7/2026, 8:02:52 PM
 1class Solution {
-2    public int[] twoSum(int[] numbers, int target) {
-3        int i = 0;
-4        int j = numbers.length-1;
-5        int[] ans = {-1,-1};
-6        // [2,7,11,15]
-7        //  i j
-8        //sum = 
-9        while(i < j){
-10            int sum = numbers[i] + numbers[j];
-11            if(sum > target){
-12                j--;
-13            }
-14            else if(sum < target){
-15                i++;
-16            }
-17            else{
-18                ans[0] = i+1;
-19                ans[1] = j+1;
-20                return ans;
-21            }
-22        }
-23        return ans;
-24    }
-25}
+2    public int[] twoSum(int[] nums, int target) {
+3        int[] ans = {-1, -1};
+4        for(int i = 0; i < nums.length; i++){
+5            for(int j = i+1; j < nums.length; j++){
+6                int sum = nums[i] + nums[j];
+7                if(sum == target){
+8                    ans[0] = i+1;
+9                    ans[1] = j+1;
+10                    return ans;
+11                }
+12            }
+13        }
+14        return ans;
+15    }
+16}
