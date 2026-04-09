@@ -1,21 +1,14 @@
-// Last updated: 1/18/2026, 5:24:27 PM
+// Last updated: 4/9/2026, 9:49:47 PM
 1class Solution {
-2    public int countPairs(List<Integer> nums, int target) {
-3        Collections.sort(nums); // this sort the list(Build in fun.)
-4        int i = 0;
-5        int j = nums.size()-1;
-6        int count = 0;
+2    public void reverseString(char[] s) {
+3        char[] help = new char[s.length];
+4        int index = 0;
+5
+6        for(int i = 0; i < s.length; i++) help[i] = s[i];
 7
-8        while(i < j){
-9            int sum = nums.get(i) + nums.get(j);
-10            if(sum >= target){
-11                j--;
-12            }
-13            else{
-14                count = count+(j-i);
-15                i++;
-16            }
-17        }
-18        return count;
-19    }
-20}
+8        for(int i = help.length-1; i >= 0; i--) {
+9            s[index++] = help[i];
+10        }
+11        //return s;
+12    }
+13}
