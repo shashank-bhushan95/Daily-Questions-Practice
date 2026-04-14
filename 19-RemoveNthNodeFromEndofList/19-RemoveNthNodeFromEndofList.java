@@ -1,4 +1,4 @@
-// Last updated: 4/5/2026, 7:44:06 PM
+// Last updated: 4/14/2026, 5:31:40 PM
 1/**
 2 * Definition for singly-linked list.
 3 * public class ListNode {
@@ -11,24 +11,22 @@
 10 */
 11class Solution {
 12    public ListNode removeNthFromEnd(ListNode head, int n) {
-13        ListNode dummy = new ListNode(0);
-14        dummy.next = head;
-15        int size = 0;
-16        ListNode temp = head;
-17
-18        while(temp != null){
-19            size++;
-20            temp = temp.next;
-21        }
+13        int len = 0;
+14        ListNode temp = head;
+15        
+16        while(temp != null){
+17            len++;
+18            temp = temp.next;
+19        }
+20
+21        if (len == n) return head.next;
 22
-23        int position = size - n;
-24        ListNode curr = dummy;
-25        for(int i = 0; i < position; i++){
-26            curr = curr.next;
+23        int diff = len - n;
+24        temp = head;
+25        for (int i = 1; i < diff; i++) {
+26          temp = temp.next;
 27        }
-28        
-29        curr.next = curr.next.next;
-30
-31        return dummy.next;
-32    }
-33}
+28        temp.next = temp.next.next;
+29        return head;
+30    }
+31}
