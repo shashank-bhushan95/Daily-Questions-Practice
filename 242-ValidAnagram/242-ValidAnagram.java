@@ -1,4 +1,4 @@
-// Last updated: 6/15/2026, 12:38:42 PM
+// Last updated: 6/15/2026, 12:39:37 PM
 1class Solution {
 2    public boolean isAnagram(String s, String t) {
 3        if(s.length() != t.length()){
@@ -18,3 +18,4 @@
 17        return true;
 18    }
 19}
+20
