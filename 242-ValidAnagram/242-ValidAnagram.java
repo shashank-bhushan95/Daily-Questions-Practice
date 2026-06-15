@@ -1,34 +1,20 @@
-// Last updated: 8/7/2025, 10:03:43 PM
-class Solution {
-    public boolean isAnagram(String s, String t) {
-        if(s.length() != t.length()){
-            return false;
-        }
-        
-        // char cs[] = s.toCharArray();
-        // char ct[] = t.toCharArray();
-        // Arrays.sort(cs);
-        // Arrays.sort(ct);
-
-        // for(int i = 0; i < cs.length; i++){
-        //     if(cs[i] != ct[i]){
-        //         return false;
-        //     }
-        // }
-        // return true;
-
-        int fre[] = new int[26];
-        for(int i = 0; i < s.length(); i++){
-            fre[s.charAt(i) - 'a']++;
-        }
-
-        for(int i = 0; i < t.length(); i++){
-            fre[t.charAt(i) - 'a']--;
-        }
-
-        for(int i = 0; i < fre.length; i++){
-            if(fre[i] != 0) return false;
-        }
-        return true;
-    }
-}
+// Last updated: 6/15/2026, 12:38:42 PM
+1class Solution {
+2    public boolean isAnagram(String s, String t) {
+3        if(s.length() != t.length()){
+4            return false;
+5        }
+6        
+7        char cs[] = s.toCharArray();
+8        char ct[] = t.toCharArray();
+9        Arrays.sort(cs);
+10        Arrays.sort(ct);
+11
+12        for(int i = 0; i < cs.length; i++){
+13            if(cs[i] != ct[i]){
+14                return false;
+15            }
+16        }
+17        return true;
+18    }
+19}
