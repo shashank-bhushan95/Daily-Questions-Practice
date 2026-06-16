@@ -1,15 +1,15 @@
-// Last updated: 6/16/2026, 9:43:01 AM
+// Last updated: 6/16/2026, 10:10:56 AM
 1class Solution {
-2    public int reverse(int x) {
-3        long rev = 0;
-4        // int copy = x;
-5        while(x != 0){
-6            int digit = x % 10;
-7            x = x / 10;
-8            rev = rev * 10 + digit;
-9            if(rev > Integer.MAX_VALUE || rev < Integer.MIN_VALUE) return 0;
-10        }
-11        
-12        return (int) rev;
+2    public int[] plusOne(int[] digits) {
+3        for(int i = digits.length-1; i >= 0; i--){
+4            if(digits[i] < 9){
+5                digits[i]++;
+6                return digits;
+7            }
+8            digits[i]  = 0;
+9        }
+10        int[] arr = new int[digits.length+1];
+11        arr[0] = 1;
+12        return arr;
 13    }
 14}
