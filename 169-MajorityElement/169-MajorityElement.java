@@ -1,22 +1,23 @@
-// Last updated: 6/18/2026, 12:23:02 AM
+// Last updated: 6/18/2026, 12:36:14 AM
 1class Solution {
-2    public int findMaxConsecutiveOnes(int[] nums) {
+2    public int maxPower(String s) {
 3        int curr = 0;
-4        int befo = -1;
+4        int before =-1;
 5        int ans = 0;
-6    
-7        for(int i = 0; i < nums.length; i++){
-8            
-9            if(nums[i] == 1){
-10                int one = curr - befo;
-11                if(one > ans) ans = one;
-12                curr++;
+6        for(int i = 1; i < s.length(); i++){
+7            if(s.charAt(i) == s.charAt(i-1)){
+8                curr++;
+9                int count = curr - before;
+10                if(count > ans){
+11                    ans = count;
+12                }
 13            }
 14            else{
 15                curr++;
-16                befo = i;
+16                before = i-1;
 17            }
-18        }
-19        return ans;
-20    }
-21}
+18        } 
+19        if(ans == 0) return 1;
+20        return ans;
+21    }
+22}
