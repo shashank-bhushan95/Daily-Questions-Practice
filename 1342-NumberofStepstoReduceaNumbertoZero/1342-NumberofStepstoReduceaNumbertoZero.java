@@ -1,25 +1,28 @@
-// Last updated: 6/17/2026, 10:33:37 AM
+// Last updated: 6/17/2026, 12:24:01 PM
 1class Solution {
-2    public int findNumbers(int[] nums) {
-3        // N^2
-4        // int ans = 0;
-5        // for(int i = 0; i < nums.length; i++){
-6        //     int count = 0;
-7        //     while(nums[i] > 0){
-8        //         nums[i] = nums[i] / 10;
-9        //         count++;
-10        //     }
-11        //     if(count % 2 == 0){
-12        //         ans++;
-13        //     }
-14        // }
-15        // return ans;
-16
-17        int count = 0;
-18        for(int i = 0; i < nums.length; i++){
-19            int digit =(int) Math.log10(nums[i]) + 1;
-20            if(digit % 2 == 0) count++;
-21        }
-22        return count;
-23    }
-24}
+2    public int[] findEvenNumbers(int[] digits) {
+3        HashSet<Integer> a = new HashSet<>();
+4
+5        for(int i = 0; i < digits.length; i++){
+6            if(digits[i] == 0) continue;
+7            for(int j = 0; j < digits.length; j++){
+8                for(int k = 0; k < digits.length; k++){
+9                    if(i != j && i != k && j != k){
+10                        int num = digits[i]*100 + digits[j]*10 + digits[k];
+11                        if(num % 2 == 0){
+12                            a.add(num);
+13                        }
+14                    }
+15                }
+16            }
+17        }
+18        int size = a.size();
+19        int[] ans = new int[size];
+20        int index = 0;
+21        for(int i : a){
+22            ans[index++] = i;
+23        }
+24        Arrays.sort(ans);
+25        return ans;
+26    }
+27}
