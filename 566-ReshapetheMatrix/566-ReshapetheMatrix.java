@@ -1,13 +1,14 @@
-// Last updated: 6/21/2026, 1:11:14 PM
+// Last updated: 6/21/2026, 3:14:03 PM
 1class Solution {
-2    public int[][] construct2DArray(int[] original, int m, int n) {
-3        
-4        if(original.length != (m*n)) return new int[0][0];
-5        int[][] ans = new int[m][n];
-6        for(int i = 0; i < original.length; i++){
-7            ans[i/n][i%n] = original[i];
-8        }
-9        return ans;
-10
-11    }
-12}
+2    public String reversePrefix(String s, int k) {
+3        StringBuilder sb = new StringBuilder();
+4        for(int i = k-1; i >= 0; i--){
+5            sb.append(s.charAt(i));
+6        }
+7        for(int i = k; i < s.length(); i++){
+8            sb.append(s.charAt(i));
+9        }
+10        s = sb.toString();
+11        return s;
+12    }
+13}
