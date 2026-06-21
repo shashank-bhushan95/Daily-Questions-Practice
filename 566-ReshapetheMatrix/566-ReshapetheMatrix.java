@@ -1,11 +1,19 @@
-// Last updated: 6/21/2026, 3:19:45 PM
+// Last updated: 6/21/2026, 3:43:54 PM
 1class Solution {
 2    public String reversePrefix(String s, int k) {
-3        // Step 1: Shuruat ke k characters ka substring nikal kar use reverse karo
-4        StringBuilder prefix = new StringBuilder(s.substring(0, k));
-5        prefix.reverse(); // Yeh built-in function characters ko ulta kar dega
-6        
-7        // Step 2: Bache hue part ko append karo aur string return kar do
-8        return prefix.append(s.substring(k)).toString();
-9    }
-10}
+3        char[] ch = new char[s.length()];
+4        for(int i = 0; i < s.length(); i++){
+5            ch[i] = s.charAt(i);
+6        }
+7        int i = 0; 
+8        int j = k-1;
+9        while(i < j){
+10            char temp = ch[i];
+11            ch[i] = ch[j];
+12            ch[j] = temp;
+13            i++;
+14            j--;
+15        }
+16        return new String(ch);
+17    }
+18}
