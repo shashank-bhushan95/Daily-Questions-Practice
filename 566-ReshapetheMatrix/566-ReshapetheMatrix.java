@@ -1,11 +1,12 @@
-// Last updated: 6/21/2026, 12:52:52 PM
+// Last updated: 6/21/2026, 1:08:05 PM
 1class Solution {
-2    public int[][] matrixReshape(int[][] mat, int r, int c) {
-3        int[][] ans = new int[r][c];
-4        if((mat.length * mat[0].length) != (r * c)) return mat;
-5        for(int i = 0; i < (mat.length * mat[0].length); i++){
-6            ans[i/c][i%c] = mat[i/mat[0].length][i%mat[0].length];
+2    public int[][] construct2DArray(int[] original, int m, int n) {
+3        int[][] ans = new int[m][n];
+4        if(original.length != (m*n)) return new int[0][0];
+5        for(int i = 0; i < original.length; i++){
+6            ans[i/n][i%n] = original[i];
 7        }
 8        return ans;
-9    }
-10}
+9
+10    }
+11}
