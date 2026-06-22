@@ -1,4 +1,4 @@
-// Last updated: 6/22/2026, 10:33:04 AM
+// Last updated: 6/22/2026, 10:34:17 AM
 1class Solution {
 2    public int longestConsecutive(int[] nums) {
 3        if(nums.length == 0) return 0;
@@ -8,7 +8,7 @@
 7        for(int i = 0; i < nums.length-1; i++){
 8            if(nums[i+1] - nums[i] == 1){
 9                count++;
-10                if(max < count) max = count;
+10                max = Math.max(count, max);
 11            }
 12            else if(nums[i] == nums[i+1]) continue;
 13            if(nums[i+1] - nums[i] > 1){
