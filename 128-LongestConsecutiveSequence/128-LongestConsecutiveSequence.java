@@ -1,20 +1,19 @@
-// Last updated: 6/22/2026, 10:34:17 AM
+// Last updated: 6/22/2026, 10:45:51 AM
 1class Solution {
-2    public int longestConsecutive(int[] nums) {
-3        if(nums.length == 0) return 0;
+2    public int longestContinuousSubstring(String s) {
+3        int ans = 1;
 4        int count = 1;
-5        int max = 1;
-6        Arrays.sort(nums);
-7        for(int i = 0; i < nums.length-1; i++){
-8            if(nums[i+1] - nums[i] == 1){
+5        for(int i = 0; i < s.length()-1; i++){
+6            int asciiValue1 = (int) s.charAt(i);
+7            int asciiValue2 = (int) s.charAt(i+1);
+8            if(asciiValue2 - asciiValue1 == 1){
 9                count++;
-10                max = Math.max(count, max);
+10                ans = Math.max(count, ans);
 11            }
-12            else if(nums[i] == nums[i+1]) continue;
-13            if(nums[i+1] - nums[i] > 1){
-14                count = 1;
-15            }
-16        }
-17        return max;
-18    }
-19}
+12            else{
+13                count = 1;
+14            }
+15        }
+16        return ans;
+17    }
+18}
