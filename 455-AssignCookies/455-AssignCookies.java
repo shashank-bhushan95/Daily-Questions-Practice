@@ -1,26 +1,25 @@
-// Last updated: 9/23/2025, 9:37:19 AM
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
-class Solution {
-    public ListNode reverseList(ListNode head) {
-        if(head == null || head.next == null) return head;
-        ListNode prev = null;
-        ListNode curr = head;
-        ListNode nex = head.next;
-        while(curr != null){
-            nex = curr.next;
-            curr.next =prev;
-            prev = curr;
-            curr = nex;
-        }
-        return prev;
-    }
-}
+// Last updated: 6/27/2026, 7:35:27 PM
+1class Solution {
+2    public int findContentChildren(int[] g, int[] s) {
+3        Arrays.sort(g);
+4        Arrays.sort(s);
+5
+6        int gIndex = 0;
+7        int sIndex = 0;
+8        int ans = 0;
+9
+10        while(gIndex < g.length && sIndex < s.length){
+11            if(g[gIndex] <= s[sIndex]){
+12                ans++;
+13                gIndex++;
+14                sIndex++;
+15            }
+16
+17            else{
+18                sIndex++;
+19            }
+20        }
+21
+22        return ans;
+23    }
+24}
