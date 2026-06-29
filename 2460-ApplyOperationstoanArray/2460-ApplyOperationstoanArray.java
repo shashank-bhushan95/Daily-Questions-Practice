@@ -1,4 +1,4 @@
-// Last updated: 6/20/2026, 10:45:26 PM
+// Last updated: 6/29/2026, 12:28:55 PM
 1class Solution {
 2    public int[] applyOperations(int[] nums) {
 3        for(int i = 0; i < nums.length-1; i++){
