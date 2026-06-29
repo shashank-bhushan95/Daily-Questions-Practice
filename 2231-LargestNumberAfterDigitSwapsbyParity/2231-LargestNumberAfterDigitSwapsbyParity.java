@@ -1,39 +1,23 @@
-// Last updated: 6/29/2026, 11:22:43 PM
+// Last updated: 6/29/2026, 11:48:20 PM
 1class Solution {
-2    public int largestInteger(int num) {
-3        ArrayList<Integer> even = new ArrayList<>();
-4        ArrayList<Integer> odd = new ArrayList<>();
-5        ArrayList<Integer> dig = new ArrayList<>();
-6        while(num > 0){
-7            int digit = num % 10;
-8            if(digit % 2 == 0) even.add(digit);
-9            else odd.add(digit);
-10            dig.add(digit);
-11            num = num / 10;
-12        }
-13
-14        Collections.sort(even);
-15        Collections.sort(odd);
-16        Collections.reverse(dig);
-17
-18        int evenIdx = even.size() - 1;
-19        int oddIdx = odd.size() - 1;
-20        for (int i = 0; i < dig.size(); i++) {
-21            int originalDigit = dig.get(i);
-22            if (originalDigit % 2 == 0) {
-23                dig.set(i, even.get(evenIdx)); 
-24                evenIdx--;
-25            } else {
-26                dig.set(i, odd.get(oddIdx));
-27                oddIdx--;
-28            }
-29        }
-30
-31        int result = 0;
-32        for (int n : dig) {
-33            result = (result * 10) + n;
-34        }
-35
-36        return result;
-37    }
-38}
+2    public int flipgame(int[] fronts, int[] backs) {
+3        ArrayList<Integer> a = new ArrayList<>();
+4        for(int i = 0; i < fronts.length; i++){
+5            if(fronts[i] == backs[i]) {
+6                a.add(fronts[i]);
+7            }
+8        }
+9
+10        int ans = Integer.MAX_VALUE;
+11        for(int i = 0; i < fronts.length; i++){
+12            if(a.contains(fronts[i]) == false){
+13                ans = Math.min(ans, fronts[i]);
+14            }
+15            if(a.contains(backs[i]) == false){
+16                ans = Math.min(ans, backs[i]);
+17            }
+18        }
+19        if(ans == Integer.MAX_VALUE) return 0;
+20        return ans;
+21    }
+22}
