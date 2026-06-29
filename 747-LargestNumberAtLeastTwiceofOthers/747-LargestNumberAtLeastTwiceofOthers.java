@@ -1,14 +1,18 @@
-// Last updated: 6/29/2026, 10:46:43 PM
+// Last updated: 6/29/2026, 10:53:07 PM
 1class Solution {
 2    public int dominantIndex(int[] nums) {
-3        int[] copy = nums.clone();
-4        Arrays.sort(nums);
-5        int n = nums.length;
-6        if(nums[n-1] >= 2*nums[n-2]){
-7            for(int i = 0; i < n; i++){
-8                if(copy[i] == nums[n-1]) return i;
+3        int max = nums[0];
+4        int index = 0;
+5        for(int i = 0; i < nums.length; i++){
+6            if(nums[i] > max){
+7                max = nums[i];
+8                index = i;
 9            }
 10        }
-11        return -1;
-12    }
-13}
+11
+12        for(int i = 0; i < nums.length; i++){
+13            if(nums[i]*2 > max && i != index) index = -1;
+14        }
+15        return index;
+16    }
+17}
