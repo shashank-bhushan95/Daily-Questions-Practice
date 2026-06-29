@@ -1,4 +1,4 @@
-// Last updated: 6/29/2026, 11:10:29 PM
+// Last updated: 6/29/2026, 11:22:43 PM
 1class Solution {
 2    public int largestInteger(int num) {
 3        ArrayList<Integer> even = new ArrayList<>();
@@ -21,10 +21,10 @@
 20        for (int i = 0; i < dig.size(); i++) {
 21            int originalDigit = dig.get(i);
 22            if (originalDigit % 2 == 0) {
-23                dig.set(i, even.get(evenIdx)); // FIXED: Get the value, don't store the index
+23                dig.set(i, even.get(evenIdx)); 
 24                evenIdx--;
 25            } else {
-26                dig.set(i, odd.get(oddIdx));   // FIXED: Get the value, don't store the index
+26                dig.set(i, odd.get(oddIdx));
 27                oddIdx--;
 28            }
 29        }
