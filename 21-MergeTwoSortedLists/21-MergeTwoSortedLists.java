@@ -1,40 +1,28 @@
-// Last updated: 8/7/2025, 10:04:06 PM
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
-class Solution {
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode temp1 = list1;
-        ListNode temp2 = list2;
-        ListNode head = new ListNode(0);
-        ListNode temp = head;
-        while(temp1 != null && temp2 != null){
-            if(temp1.val < temp2.val){
-                ListNode a = new ListNode(temp1.val);
-                temp.next = a;
-                temp = a;
-                temp1 = temp1.next;
-            }
-            else{
-                ListNode a = new ListNode(temp2.val);
-                temp.next = a;
-                temp = a;
-                temp2 = temp2.next;
-            }
-        }
-        if(temp1 == null){
-            temp.next = temp2;
-        }
-        else{
-            temp.next = temp1;
-        }
-        return head.next;
-    }
-}
+// Last updated: 7/13/2026, 11:25:28 AM
+1class Solution {
+2    public int strStr(String haystack, String needle) {
+3        if (needle.length() == 0) return 0;
+4        int i = 0;
+5        int j = 0;
+6        int indx = 0;
+7        while(i < haystack.length()){
+8            if(haystack.charAt(i) != needle.charAt(j)) i++;
+9            else{
+10                indx = i;
+11                while(j < needle.length() && i < haystack.length()){
+12                    if(needle.charAt(j) != haystack.charAt(i)) {
+13                        j = 0;
+14                        i = indx+1;
+15                        break;
+16                    }
+17                    else{
+18                        i++;
+19                        j++;
+20                    }
+21                }
+22                if(j == needle.length()) return i-needle.length();
+23            }
+24        }
+25        return -1;
+26    }
+27}
