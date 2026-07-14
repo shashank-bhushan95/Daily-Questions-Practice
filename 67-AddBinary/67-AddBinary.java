@@ -1,21 +1,24 @@
-// Last updated: 7/14/2026, 9:49:29 AM
+// Last updated: 7/14/2026, 11:07:23 AM
 1class Solution {
-2    public int mySqrt(int x) {
-3        int start = 0;
-4        int end = x;
-5        
-6
-7        while(start <= end){
-8            int mid = start + (end - start) / 2;
-9            long pro = (long)mid * mid;
-10            if(pro == x) return mid;
-11            else if(pro > x){
-12                end = mid-1;
-13            }
-14            else{
-15                start = mid + 1;
-16            }
-17        }
-18        return end;
-19    }
-20}
+2    public int maxProfit(int[] prices) {
+3        int length = prices.length;
+4        int[] min = new int[length];
+5        int[] max = new int[length];
+6        min[0] = prices[0];
+7        max[length-1] = prices[length-1];
+8        for(int i = 1; i < length; i++){
+9            min[i] = Math.min(min[i-1], prices[i]);
+10        }
+11
+12        for(int i = length - 2; i >= 0; i--){
+13            max[i] = Math.max(max[i+1], prices[i]);
+14        }
+15
+16        int maxV = 0;
+17        for(int i = 0; i < prices.length; i++){
+18            maxV = Math.max(maxV, max[i]-min[i]);
+19        }
+20
+21        return maxV;
+22    }
+23}
