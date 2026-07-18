@@ -1,14 +1,18 @@
-// Last updated: 7/19/2026, 12:35:20 AM
+// Last updated: 7/19/2026, 12:35:53 AM
 1class Solution {
-2    public int removeElement(int[] nums, int val) {
-3        int index = 0;
-4
-5        for(int i = 0; i < nums.length; i++){
-6            if(nums[i] == val) continue;
-7            else{
-8                nums[index++] = nums[i];
-9            }
-10        }
-11        return index;
-12    }
-13}
+2    public int rob(int[] nums) {
+3        int n = nums.length;
+4        if(nums == null || n == 0) return 0;
+5        if(n == 1) return nums[0];
+6        if(n == 2) return Math.max(nums[0] , nums[1]);
+7
+8        int dp[] =  new int[n];
+9        dp[0] = nums[0];
+10        dp[1] = Integer.max(nums[1], nums[0]);
+11        for(int i = 2; i < n; i++){
+12            dp[i] = Integer.max(nums[i] + dp[i-2], dp[i-1]);
+13        
+14        }
+15        return dp[n-1];
+16    }
+17}
