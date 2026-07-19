@@ -1,25 +1,20 @@
-// Last updated: 7/19/2026, 3:48:50 PM
+// Last updated: 7/20/2026, 12:27:28 AM
 1class Solution {
-2    public int romanToInt(String s) {
-3        HashMap<Character, Integer> map = new HashMap<>();
-4        map.put('I', 1);
-5        map.put('V', 5);
-6        map.put('X', 10);
-7        map.put('L', 50);
-8        map.put('C', 100);
-9        map.put('D', 500);
-10        map.put('M', 1000);
-11
-12        int total = 0;
-13        int n = s.length();
-14        for (int i = 0; i < n; i++) {
-15            int currentVal = map.get(s.charAt(i));
-16            if (i + 1 < n && currentVal < map.get(s.charAt(i + 1))) {
-17                total -= currentVal;
-18            } else {
-19                total += currentVal;
-20            }
-21        }
-22        return total;
-23    }
-24}
+2    public List<List<Integer>> generate(int numRows) {
+3        //ArrayList<ArrayList>Integer>> ans = new ArrayList<>();
+4        List<List<Integer>> ans = new ArrayList<>();
+5        for(int i = 0; i < numRows; i++){
+6            List<Integer> currentRow = new ArrayList<>();
+7            for(int j = 0; j < i+1; j++){
+8                if(j == 0 || j == i) currentRow.add(1);
+9                else{
+10                    int val1 = ans.get(i - 1).get(j);
+11                    int val2 = ans.get(i - 1).get(j - 1);
+12                    currentRow.add(val1 + val2);
+13                }
+14            }
+15            ans.add(currentRow);
+16        }
+17        return ans;
+18    }
+19}
