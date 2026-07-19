@@ -1,24 +1,24 @@
-// Last updated: 7/19/2026, 3:40:13 PM
+// Last updated: 7/19/2026, 3:48:50 PM
 1class Solution {
-2    public int value(char ch){
-3        if(ch == 'I') return 1;
-4        if(ch == 'V') return 5;
-5        if(ch == 'X') return 10;
-6        if(ch == 'L') return 50;
-7        if(ch == 'C') return 100;
-8        if(ch == 'D') return 500;
-9        if(ch == 'M') return 1000;
-10        return 0;
-11    }
-12    public int romanToInt(String s) {
-13        int total = 0;
-14        for(int i = 0; i < s.length(); i++){
-15            char ch = s.charAt(i);
-16            int val = value(ch);
-17            if(i+1 < s.length() && val < value(s.charAt(i+1))){
-18                total -= val;
-19            }
-20            else total += val;
+2    public int romanToInt(String s) {
+3        HashMap<Character, Integer> map = new HashMap<>();
+4        map.put('I', 1);
+5        map.put('V', 5);
+6        map.put('X', 10);
+7        map.put('L', 50);
+8        map.put('C', 100);
+9        map.put('D', 500);
+10        map.put('M', 1000);
+11
+12        int total = 0;
+13        int n = s.length();
+14        for (int i = 0; i < n; i++) {
+15            int currentVal = map.get(s.charAt(i));
+16            if (i + 1 < n && currentVal < map.get(s.charAt(i + 1))) {
+17                total -= currentVal;
+18            } else {
+19                total += currentVal;
+20            }
 21        }
 22        return total;
 23    }
