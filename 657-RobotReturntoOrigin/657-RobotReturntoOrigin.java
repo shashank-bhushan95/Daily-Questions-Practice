@@ -1,12 +1,14 @@
-// Last updated: 7/19/2026, 3:14:18 PM
+// Last updated: 7/19/2026, 3:17:19 PM
 1class Solution {
-2    public int[] getConcatenation(int[] nums) {
-3        int n = nums.length;
-4        int[] ans = new int[n*2];
-5        for(int i = 0; i < n; i++){
-6            ans[i] = nums[i];
-7            ans[i+n] = nums[i];
-8        }
-9        return ans;
-10    }
-11}
+2    public int maximumWealth(int[][] accounts) {
+3        int max = 0;
+4        for(int i = 0; i < accounts.length; i++){
+5            int sum = 0;
+6            for(int j = 0; j < accounts[0].length; j++){
+7                sum += accounts[i][j];
+8            }
+9            max = Math.max(max, sum);
+10        }
+11        return max;
+12    }
+13}
