@@ -1,18 +1,30 @@
-// Last updated: 7/23/2026, 2:46:59 PM
+// Last updated: 7/23/2026, 3:09:49 PM
 1class Solution {
-2    public String convertToBase7(int num) {
-3        if(num == 0) return "0";
-4        StringBuilder sb = new StringBuilder();
-5        boolean neg = false;
-6        if(num < 0) neg = true;
-7        int n = Math.abs(num);
-8        while(n > 0){
-9            int digit = n % 7;
-10            sb.append(digit);
-11            n = n / 7;
+2    public String[] findRelativeRanks(int[] score) {
+3        int n = score.length;
+4        int[] arr = score.clone();
+5        Arrays.sort(arr);
+6        HashMap<Integer, Integer> map = new HashMap<>();
+7
+8        int rank = 1;
+9        for (int i = n - 1; i >= 0; i--) {
+10            map.put(arr[i], rank);
+11            rank++;
 12        }
-13        if(neg) sb.append('-');
-14        String ans = sb.reverse().toString();;
-15        return ans;
-16    }
-17}
+13        String[] ans = new String[n];
+14        for (int i = 0; i < n; i++) {
+15            int r = map.get(score[i]);
+16            if (r == 1) {
+17                ans[i] = "Gold Medal";
+18            } else if (r == 2) {
+19                ans[i] = "Silver Medal";
+20            } else if (r == 3) {
+21                ans[i] = "Bronze Medal";
+22            } else {
+23                ans[i] = String.valueOf(r);
+24            }
+25        }
+26
+27        return ans;
+28    }
+29}
