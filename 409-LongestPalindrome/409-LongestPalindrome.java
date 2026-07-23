@@ -1,25 +1,22 @@
-// Last updated: 7/23/2026, 2:12:53 PM
+// Last updated: 7/23/2026, 2:13:16 PM
 1class Solution {
 2    public int findComplement(int num) {
-3        if(num == 0) return 1;
-4        boolean even = false;
-5        if(num % 2 == 0) even = true;
-6        ArrayList<Integer> arr = new ArrayList<>();
-7        while(num > 0){
-8            int digit = num % 2;
-9            arr.add(digit);
-10            num = num / 2;
-11        }
-12        //
-13        //Collections.reverse(arr);
-14        int ans = 0;
-15        int exp = 0;    // Use for power
-16        for(int n : arr){
-17            if(n == 0){
-18                ans = ans + (int) Math.pow(2, exp);
-19            }
-20            exp++;
-21        }
-22        return ans;
-23    }
-24}
+3        ArrayList<Integer> arr = new ArrayList<>();
+4        while(num > 0){
+5            int digit = num % 2;
+6            arr.add(digit);
+7            num = num / 2;
+8        }
+9
+10        //Collections.reverse(arr);
+11        int ans = 0;
+12        int exp = 0;    // Use for power
+13        for(int n : arr){
+14            if(n == 0){
+15                ans = ans + (int) Math.pow(2, exp);
+16            }
+17            exp++;
+18        }
+19        return ans;
+20    }
+21}
