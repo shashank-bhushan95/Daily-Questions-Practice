@@ -1,13 +1,11 @@
-// Last updated: 7/27/2026, 1:59:39 PM
+// Last updated: 7/27/2026, 2:10:06 PM
 1class Solution {
 2    public int distributeCandies(int[] candyType) {
-3        HashSet<Integer> arr = new HashSet<>();
-4        for(int num : candyType){
-5            arr.add(num);
-6        }
-7        int size = arr.size();
-8        int half = candyType.length/2;
-9        if(half > size) return size;
-10        else return half;
-11    }
-12}
+3        Arrays.sort(candyType);
+4        int unique = 1;
+5        for(int i = 0; i < candyType.length-1; i++){
+6            if(candyType[i] != candyType[i+1]) unique++;
+7        }
+8        return Math.min(unique, candyType.length/2);
+9    }
+10}
