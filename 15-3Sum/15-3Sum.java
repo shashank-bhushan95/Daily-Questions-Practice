@@ -1,18 +1,43 @@
-// Last updated: 7/28/2026, 4:11:40 PM
+// Last updated: 7/28/2026, 4:50:28 PM
 1class Solution {
-2    public int numJewelsInStones(String jewels, String stones) {
-3        HashSet<Character> set = new HashSet<>();
-4        for(int i = 0; i < jewels.length(); i++){
-5            char ch = jewels.charAt(i);
-6            set.add(ch);
-7        }
-8        int ans = 0;
-9        for(int i = 0; i < stones.length(); i++){
-10            char ch = stones.charAt(i);
-11            if (set.contains(ch)) {
-12                ans++;
-13            }
-14        }
-15        return ans;
-16    }
-17}
+2    public boolean rotateString(String s, String goal) {
+3
+4        if (s.length() != goal.length()) return false;
+5        if (s.length() == 0) return true;
+6        char ch = goal.charAt(0);
+7 
+8        for (int index = 0; index < s.length(); index++) {
+9            if (s.charAt(index) != ch) continue;
+10            int i = index;
+11            int j = 0;
+12            boolean match = true;
+13            // index se end tak compare
+14            while (i < s.length()) {
+15                if (s.charAt(i) != goal.charAt(j)) {
+16                    match = false;
+17                    break;
+18                }
+19                i++;
+20                j++;
+21            }
+22            // beginning se index-1 tak compare
+23            if (match) {
+24                i = 0;
+25                while (i < index) {
+26                    if (s.charAt(i) != goal.charAt(j)) {
+27                        match = false;
+28                        break;
+29                    }
+30                    i++;
+31                    j++;
+32                }
+33            }
+34
+35            if (match) {
+36                return true;
+37            }
+38        }
+39
+40        return false;
+41    }
+42}
