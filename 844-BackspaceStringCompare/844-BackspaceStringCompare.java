@@ -1,4 +1,4 @@
-// Last updated: 7/14/2026, 10:46:06 AM
+// Last updated: 7/30/2026, 12:48:16 AM
 1class Solution {
 2    public boolean backspaceCompare(String s, String t) {
 3        Stack<Character> a = new Stack<>();
