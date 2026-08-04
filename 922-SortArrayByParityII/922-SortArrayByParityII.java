@@ -1,38 +1,19 @@
-// Last updated: 8/4/2026, 2:25:14 PM
+// Last updated: 8/4/2026, 2:36:55 PM
 1class Solution {
 2    public int[] sortArrayByParityII(int[] nums) {
-3        int index = 0;
-4        int i = 0;
-5        //int j = 1;
-6        while(i < nums.length){
-7            // if(i % 2 == 0 && nums[i] % 2 == 0) i++;
-8            // else if(i % 2 != 0 && nums[i] % 2 != 0) i++;
-9            if(i % 2 == 0 && nums[i] % 2 != 0){
-10                int j = i+1;
-11                while(j < nums.length){
-12                    if(nums[j] % 2 == 0){
-13                        int temp = nums[i];
-14                        nums[i] = nums[j];
-15                        nums[j] = temp;
-16                        break;
-17                    }
-18                    j++;
-19                }
-20            }
-21            else if(i % 2 != 0 && nums[i] % 2 == 0){
-22                int j = i+1;
-23                while(j < nums.length){
-24                    if(nums[j] % 2 != 0){
-25                        int temp = nums[i];
-26                        nums[i] = nums[j];
-27                        nums[j] = temp;
-28                        break;
-29                    }
-30                    j++;
-31                }
-32            }
-33            i++;
-34        }
-35        return nums;
-36    }
-37}
+3        int even = 0;
+4        int odd = 1;
+5        while(even < nums.length && odd < nums.length){
+6            if(nums[even] % 2 == 0) even += 2;
+7            else if(nums[odd] % 2 != 0) odd += 2;
+8            else if(nums[even] % 2 != 0 && nums[odd] % 2 == 0){
+9                int temp = nums[even];
+10                nums[even] = nums[odd];
+11                nums[odd] = temp;
+12                even += 2;
+13                odd += 2;
+14            }
+15        }
+16        return nums;
+17    }
+18}
